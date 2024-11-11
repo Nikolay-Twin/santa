@@ -1,0 +1,10 @@
+imports:
+  - { resource: parameters_dev.yaml }
+
+services:
+    test.client:
+      class: App\Tests\TestRestClient
+      public: true
+
+    Symfony\Component\HttpFoundation\Request:
+      public: true

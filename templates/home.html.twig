@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="frm">
+        <div class="descript">Отправьте подарок случайному пользователю</div>
+        {{ form_start(form, { 'attr': { 'id': 'present_form' } }) }}
+        <div class="image-choice">
+            {% for present in form.presents %}
+                <label>
+                    {{ form_widget(present) }}
+                    {% set imagePath = 'img/presents/' ~present.vars.value %}
+                    <img src="{{ asset(imagePath) }}" width="112px" height="112px">
+                </label>
+            {% endfor %}
+        </div>
+        {{ form_end(form) }}
+        <div id="form_success"></div>
+        <div id="form_errors"></div>
+    </div>
+{% endblock %}
+

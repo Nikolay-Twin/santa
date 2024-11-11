@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types = 1);
+
+use App\Kernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+set_time_limit(0);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$_ENV['APP_ENV'] = getenv('APP_ENV') ?: 'dev';
+
+
+$input = new ArgvInput();
+if (null !== $env = $input->getParameterOption(['--env', '-e'], null, true)) {
+    putenv('APP_ENV=' . ($_ENV['APP_ENV'] = $env));
+}
+
+
+(new Application(new Kernel($_ENV['APP_ENV'], true)))->run($input);

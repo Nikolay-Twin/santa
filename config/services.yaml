@@ -1,0 +1,25 @@
+parameters:
+    min_party: '%env(MIN_PARTY)%'
+    admin_email: '%env(FROM_EMAIL)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    App\:
+        resource: '../src/*'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Domain/Entity/'
+            - '../src/Kernel.php'
+
+    Symfony\Component\HttpFoundation\Request:
+        public: true
+
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+

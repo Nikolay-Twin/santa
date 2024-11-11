@@ -1,0 +1,10 @@
+
+controllers:
+  resource: '../src/Web'
+  type: attribute
+
+api:
+  resource: '../src/Api/v1'
+  prefix: '/api/v1'
+  type: attribute
+  options: { expose: true }

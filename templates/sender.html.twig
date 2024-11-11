@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="frm">
+        <div class="descript">Рассылка</div>
+        {{ form(form, { 'attr': { 'id': 'sender_form' } }) }}
+        <div id="form_success"></div>
+        <div id="form_errors"></div>
+    </div>
+{% endblock %}
