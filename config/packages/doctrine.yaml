@@ -1,7 +1,11 @@
 
 doctrine:
   dbal:
-    url: 'mysql://slonobl5_santa:12345uytre@127.0.0.1:3306/slonobl5_santa'
+    dbname: '%env(DB_NAME)%'
+    host: '%env(DB_HOST)%'
+    port: '%env(DB_PORT)%'
+    user: '%env(DB_USER)%'
+    password: '%env(DB_PASSWORD)%'
     driver: 'pdo_mysql'
     server_version: '5.7.44'
     charset: utf8

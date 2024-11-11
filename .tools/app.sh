@@ -26,7 +26,6 @@ init() {
   composer install
   console doctrine:database:create
   migrationApple
-  apFixtures
   printf "\e[0m\n"
   log "Project initialization completed!" "wait"
   printf "\e[0m\n"

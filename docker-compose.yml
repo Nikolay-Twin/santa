@@ -96,7 +96,6 @@ services:
       - PMA_HOST=mysql
     depends_on:
       - mysql
-      - mysqltest
     networks:
       - "${CONTAINER_NAME}_network"
 
