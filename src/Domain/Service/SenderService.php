@@ -69,6 +69,7 @@ class SenderService
                     }
                     $this->toQueue($donor, current($recipients));
                 }
+                $this->entityManager->flush();
             }
         } catch (Throwable $t) {
             throw new DomainException($t->getMessage().'Сбой системы');
@@ -100,7 +101,6 @@ class SenderService
         $user->setRecipient($recipient->getId());
         $user->setActual(false);
         $this->entityManager->persist($user);
-        $this->entityManager->flush();
     }
 
     /**
@@ -120,7 +120,7 @@ class SenderService
         ];
 
         $embed = [[
-            'path' => $this->appKernel->getProjectDir() .'/public/img/presents/'.$user->getPresent(),
+            'path' => $this->appKernel->getProjectDir() .'/public/img/presents/'. $user->getPresent(),
             'id' => 'present',
             'mime' => 'image/jpeg',
         ]];

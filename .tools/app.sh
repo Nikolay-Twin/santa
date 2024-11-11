@@ -25,6 +25,7 @@ init() {
   docker-compose up -d
   composer install
   console doctrine:database:create
+  console doctrine:schema:update --force
   migrationApple
   printf "\e[0m\n"
   log "Project initialization completed!" "wait"
